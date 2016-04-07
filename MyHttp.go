@@ -7,16 +7,16 @@ import(
 
 type myHttp struct{}
 
-func (*myHttp) post(url string,param string,h map){
-	return *myHttp.execu("POST",url,param,h))
+func (m *myHttp) post(url string,param string,h map){
+	return m.execu("POST",url,param,h))
 }
 
-func (*myHttp) get(url string,param string,h map){
-	return *myHttp.execu("GET",url,param,h)
+func (m *myHttp) get(url string,param string,h map){
+	return m.execu("GET",url,param,h)
 }
 
 
-func (*myHttp) execu(method string,url string,param string,h map) {
+func (m *myHttp) execu(method string,url string,param string,h map) string {
 	client := &http.Client{}
 	req, err := http.NewRequest(method,url,string.NewReader(param))
 	if err !=nil {
