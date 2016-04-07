@@ -7,6 +7,10 @@ import(
 
 type myHttp struct{}
 
+func New()*myHttp{
+	return &myHttp{}
+}
+
 func (m *myHttp) post(url string,param string,h map){
 	return m.execu("POST",url,param,h))
 }
@@ -36,5 +40,5 @@ func (m *myHttp) execu(method string,url string,param string,h map) string {
 
 	}
 
-	return fmt.PrintLn(string(body))	
+	return string(body)	
 }
